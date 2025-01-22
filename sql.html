@@ -6,15 +6,15 @@
     <title>SQL EJERCICIO 3</title>
 </head>
 <body>
-    <code>
-        CREATE DATABASE ejercicio3;
-USE ejercicio3;
+    <p>
+        CREATE DATABASE ejercicio3;<br>
+USE ejercicio3;<br>
 CREATE TABLE libros(
                     ISBN VARCHAR(20) PRIMARY KEY,
                     titulo VARCHAR(40),
                     fechaEdicion DATE,
                     numPrestamos INT
-);
+);<br>
 
 CREATE TABLE autores(
                     idAutor VARCHAR(20) PRIMARY KEY,
@@ -23,12 +23,12 @@ CREATE TABLE autores(
                     nacionalidad VARCHAR(30),
                     fechaNac DATE,
                     numPerstamos INT
-);
+);<br>
 
 CREATE TABLE escriben (
                     idAutor VARCHAR(20) PRIMARY KEY,
                     ISBN VARCHAR(20)
-);
+);<br>
 
 CREATE TABLE socios(
                     idSocio VARCHAR(20) PRIMARY KEY,
@@ -37,22 +37,22 @@ CREATE TABLE socios(
                     tefno INT,
                     fechaFinSancion DATE,
                     numLibrosLeidos INT
-);
+);<br>
 
 CREATE TABLE ejemplares(
                     codigoEjemplar VARCHAR(20) PRIMARY KEY,
                     estadoCons VARCHAR(20),
                     ISBN VARCHAR (20)
-);
--- CHECK estadoCons (Excelente, Bueno, Malo)
+);<br>
+-- CHECK estadoCons (Excelente, Bueno, Malo)<br>
 
 CREATE TABLE prestan(
                     idSocio VARCHAR(20) PRIMARY KEY,
                     codigoEjemplar VARCHAR(20),
                     fechaPrestamo DATE,
                     fechaDevolucion DATE
-);
-    </code>
+);<br>
+    </p>
     
 </body>
 </html>
