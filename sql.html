@@ -7,14 +7,14 @@
 </head>
 <body>
     <p>
-        CREATE DATABASE ejercicio3;<br>
-USE ejercicio3;<br>
+       CREATE DATABASE ejercicio3;
+USE ejercicio3;
 CREATE TABLE libros(
                     ISBN VARCHAR(20) PRIMARY KEY,
                     titulo VARCHAR(40),
                     fechaEdicion DATE,
                     numPrestamos INT
-);<br>
+);
 
 CREATE TABLE autores(
                     idAutor VARCHAR(20) PRIMARY KEY,
@@ -22,14 +22,16 @@ CREATE TABLE autores(
                     estilo VARCHAR(20),
                     nacionalidad VARCHAR(30),
                     fechaNac DATE,
-                    numPerstamos INT
-);<br>
+                    numPrestamos INT
+);
 
 CREATE TABLE escriben (
-                    idAutor VARCHAR(20) PRIMARY KEY,
-                    ISBN VARCHAR(20)
-);<br>
-
+                    idAutor VARCHAR(20),
+                    ISBN VARCHAR(20),
+                    CONSTRAINT escriben_pk PRIMARY KEY (idAutor, ISBN),
+                    CONSTRAINT idAutor_fk FOREIGN KEY (idAutor) REFERENCES autores(idAutor),
+                    CONSTRAINT escriben_ISBN_fk FOREIGN KEY (ISBN) REFERENCES libros(ISBN)  
+);
 CREATE TABLE socios(
                     idSocio VARCHAR(20) PRIMARY KEY,
                     nomSoc VARCHAR(20),
@@ -37,21 +39,26 @@ CREATE TABLE socios(
                     tefno INT,
                     fechaFinSancion DATE,
                     numLibrosLeidos INT
-);<br>
-
+);
 CREATE TABLE ejemplares(
                     codigoEjemplar VARCHAR(20) PRIMARY KEY,
                     estadoCons VARCHAR(20),
-                    ISBN VARCHAR (20)
-);<br>
--- CHECK estadoCons (Excelente, Bueno, Malo)<br>
+                    ISBN VARCHAR(20),
+                    CONSTRAINT ejemplares_ISBN_fk FOREIGN KEY (ISBN) REFERENCES libros(ISBN),
+                    CONSTRAINT check_estado CHECK estadoCons("Excelente","Bueno","Malo")
+);
+
 
 CREATE TABLE prestan(
-                    idSocio VARCHAR(20) PRIMARY KEY,
+                    idSocio VARCHAR(20),
                     codigoEjemplar VARCHAR(20),
                     fechaPrestamo DATE,
-                    fechaDevolucion DATE
-);<br>
+                    fechaDevolucion DATE,
+                    CONSTRAINT prestan_pk PRIMARY KEY(idSocio, codigoEjemplar, fechaPrestamo),
+                    CONSTRAINT socio_prestan_fk FOREIGN KEY (idSocio) REFERENCES socios(idSocio),
+                    CONSTRAINT codigo_prestan_fk FOREIGN KEY (codigoEjemplar) REFERENCES ejemplares(codigoEjemplar)
+);
+
     </p>
     
 </body>
