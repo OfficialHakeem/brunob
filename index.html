@@ -5,25 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BrunoB</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #countdown {
+            font-size: 1.5rem;
+            color: #cccccc;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <h1>nothing worth showing here currently</h1>
         <div id="countdown" class="countdown">Loading...</div>
     </div>
     <script>
-        function startCountdown(durationInSeconds) {
+        function startCountdown(endTime) {
             const countdownElement = document.getElementById('countdown');
 
             function updateCountdown() {
-                const days = Math.floor(durationInSeconds / (24 * 60 * 60));
-                const hours = Math.floor((durationInSeconds % (24 * 60 * 60)) / (60 * 60));
-                const minutes = Math.floor((durationInSeconds % (60 * 60)) / 60);
-                const seconds = durationInSeconds % 60;
+                const now = new Date().getTime();
+                const timeLeft = endTime - now;
 
-                countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                if (timeLeft > 0) {
+                    const days = Math.floor(timeLeft / (24 * 60 * 60 * 1000));
+                    const hours = Math.floor((timeLeft % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+                    const minutes = Math.floor((timeLeft % (60 * 60 * 1000)) / (60 * 1000));
+                    const seconds = Math.floor((timeLeft % (60 * 1000)) / 1000);
 
-                if (durationInSeconds > 0) {
-                    durationInSeconds--;
+                    countdownElement.textContent = `Time: ${days}d ${hours}h ${minutes}m ${seconds}s`;
                 } else {
                     countdownElement.textContent = "Countdown finished!";
                     clearInterval(interval);
@@ -34,9 +42,20 @@
             const interval = setInterval(updateCountdown, 1000);
         }
 
-        // 7 days
-        const oneWeekInSeconds = 7 * 24 * 60 * 60;
-        startCountdown(oneWeekInSeconds);
+        // Check if there's already a countdown end time in localStorage
+        let endTime = localStorage.getItem('countdownEndTime');
+
+        if (!endTime) {
+            // Set the countdown to end in 7 days from now if not already set
+            const now = new Date().getTime();
+            endTime = now + 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+            localStorage.setItem('countdownEndTime', endTime);
+        } else {
+            // Parse the stored end time
+            endTime = parseInt(endTime, 10);
+        }
+
+        startCountdown(endTime);
     </script>
 </body>
 </html>
