@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         #countdown {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             color: #cccccc;
         }
     </style>
@@ -31,7 +31,7 @@
                     const minutes = Math.floor((timeLeft % (60 * 60 * 1000)) / (60 * 1000));
                     const seconds = Math.floor((timeLeft % (60 * 1000)) / 1000);
 
-                    countdownElement.textContent = `Time: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                    countdownElement.textContent = `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
                 } else {
                     countdownElement.textContent = "Countdown finished!";
                     clearInterval(interval);
@@ -42,20 +42,9 @@
             const interval = setInterval(updateCountdown, 1000);
         }
 
-        // Check if there's already a countdown end time in localStorage
-        let endTime = localStorage.getItem('countdownEndTime');
-
-        if (!endTime) {
-            // Set the countdown to end in 7 days from now if not already set
-            const now = new Date().getTime();
-            endTime = now + 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
-            localStorage.setItem('countdownEndTime', endTime);
-        } else {
-            // Parse the stored end time
-            endTime = parseInt(endTime, 10);
-        }
-
-        startCountdown(endTime);
+        
+        const fixedEndTime = new Date('2025-02-03T00:00:00Z').getTime(); // February 3, 2025, UTC
+        startCountdown(fixedEndTime);
     </script>
 </body>
 </html>
