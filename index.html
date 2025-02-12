@@ -31,7 +31,7 @@
                     const minutes = Math.floor((timeLeft % (60 * 60 * 1000)) / (60 * 1000));
                     const seconds = Math.floor((timeLeft % (60 * 1000)) / 1000);
 
-                    countdownElement.textContent = `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                    countdownElement.textContent = `Time left: ${days}: ${hours}: ${minutes}: ${seconds}s`;
                 } else {
                     countdownElement.textContent = "Countdown finished!";
                     clearInterval(interval);
@@ -43,7 +43,7 @@
         }
 
         
-        const fixedEndTime = new Date('2025-02-07T00:00:00Z').getTime(); // February 7, 2025, UTC
+        const fixedEndTime = new Date('2025-02-21T00:00:00Z').getTime(); // February 21, 2025, UTC
         startCountdown(fixedEndTime);
     </script>
 </body>
