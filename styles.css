@@ -1,16 +1,355 @@
-body {
+/* Reset básico */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
-    color: #ffffff;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    /* Tema oscuro estilo Discord */
+    background: linear-gradient(180deg, #2f3136, #202225);
+    color: #dcddde;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Contenido arriba */
+    min-height: 100vh;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+header {
+    /* Encabezado centrado con ancho limitado */
+    background-color: #36393f;
+    color: #fff;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 8px;
+    /* Sombra sutil */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    /* Ajuste de espacio tras header */
+    width: 100%;
+    max-width: 600px;
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+section {
+    /* Secciones con fondo oscuro y bordes suaves */
+    background: #40444b;
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    /* Elimina o suaviza sombra */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#player audio {
+    width: 100%;
+    border-radius: 8px;
+}
+
+#playlist ul {
+    list-style: none;
+    width: 100%;
+}
+
+#playlist li {
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: #2f3136;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#playlist li:hover {
+    background-color: #4f545c;
+}
+
+#playlist h2 {
+    font-size: 1.4rem;
+    color: #0ff; /* Color neón como el título de valoración */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    background: linear-gradient(90deg, #0ff, #18adad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ocultar estilos anteriores y clases no usadas */
+.stars, .rating-slider, #ratingButton, #ratingValue {
+    display: none !important;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+    main {
+        gap: 15px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .stars span {
+        font-size: 1.5rem;
+    }
+}
+
+/* Estilos para la sección de filtros por tag */
+#tagFilter {
+    background: #40444b; /* Mismo fondo que otras secciones */
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#tagFilter h2 {
+    font-size: 1.4rem;
+    color: #0ff; /* Color neón como el título de valoración */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    background: linear-gradient(90deg, #0ff, #18adad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tag-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Para que se ajusten en pantallas pequeñas */
+    justify-content: center;
+    gap: 12px;
+    padding: 5px;
+}
+
+.tag-buttons button {
+    background: transparent;
+    color: #dcddde;
+    border: 1px solid #0ff; /* Borde neón */
+    padding: 8px 16px;
+    border-radius: 20px; /* Botones más redondeados */
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tag-buttons button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: rgba(0, 255, 255, 0.2);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.tag-buttons button:hover::before {
+    width: 100%;
+}
+
+.tag-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.tag-buttons button.active {
+    background: #0ff;
+    color: #1a1b1f; /* Texto oscuro sobre fondo neón */
+    font-weight: bold;
+    box-shadow: 0 0 10px #0ff;
+}
+
+/* Estilos modernos para el reproductor */
+.modern-player {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2a2d34, #1d1e22);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.modern-player::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    background: linear-gradient(45deg, #0ff, #0ff, transparent, transparent);
+    background-size: 400% 400%;
+    opacity: 0.3;
+    border-radius: 14px;
+    animation: glowingBorder 3s ease infinite;
+}
+
+@keyframes glowingBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.player-info {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.player-info h3 {
+    color: #0ff;
+    font-size: 1.2rem;
+    margin: 0;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    animation: textNeonPulse 2s infinite alternate;
+}
+
+@keyframes textNeonPulse {
+    from { text-shadow: 0 0 5px rgba(0, 255, 255, 0.5); }
+    to { text-shadow: 0 0 10px rgba(0, 255, 255, 0.8); }
+}
+
+/* Estilos de los controles personalizados */
+.custom-controls {
+    width: 100%;
+}
+
+/* Barra de progreso */
+.progress-container {
+    margin-bottom: 10px; /* Reducido desde 15px para acercar los controles a la barra */
+}
+
+.progress-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0ff, #18adad);
+    width: 0%;
+    transition: width 0.1s;
+    border-radius: 3px;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #0ff;
+    opacity: 0; /* Mantenemos en 0 para que no se vea el punto del slider */
+    /* Eliminamos la transición ya que no debe aparecer */
+}
+
+/* Botones de control */
+.control-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    font-size: 1.5rem;
-    color: #cccccc;
+    gap: 16px;
+    margin-top: 5px; /* Añadido para acercar a la barra de tiempo */
 }
 
-.container {
-    text-align: center;
+.control-btn {
+    background: transparent;
+    border: none;
+    color: #dcddde;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    padding: 0; /* Eliminar padding para mejor centrado */
+    line-height: 1; /* Mejor alineación vertical */
+}
+
+.control-btn .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#playButton {
+    background: #0ff;
+    color: #1a1b1f;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+#playButton:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+/* Ocultar el reproductor nativo y sus estilos anteriores */
+audio {
+    display: none !important;
+}
+
+audio::-webkit-media-controls,
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-timeline {
+    display: none;
 }
