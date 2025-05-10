@@ -50,13 +50,73 @@ const playlist = [
         title: "So Far - Rekuya Remix", 
         artist: "Ólafur Arnalds", 
         url: "https://soundcloud.com/rekuyamusic/olafur-arnalds-so-far-rekuya-remix",
-        cover: "placeholder_olafur.jpg"
+        cover: "placeholder.jpg"
     },
     { 
         title: "Lensko - Cetus", 
         artist: "Lensko", 
         url: "https://soundcloud.com/lensko/lensko-cetus",
-        cover: "placeholder_lensko.jpg"
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Kiss N Tell",
+        artist: "Kitty",
+        url: "https://soundcloud.com/jessonet/nightcore-kiss-n-tell",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Avril Lavigne – My Happy Ending (Nightcore)",
+        artist: "Mae Borowski",
+        url: "https://soundcloud.com/xxavengersxx/avril-lavigne-my-happy-ending-nightcore",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Smile",
+        artist: "WMNightcore",
+        url: "https://soundcloud.com/wmnightcore/nightcore-smile",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Blown Away",
+        artist: "Savra Nightcore",
+        url: "https://soundcloud.com/savra-nightcore/nightcore-blown-away",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "A Drop In The Ocean (Nightcore)",
+        artist: "Dylan Hale",
+        url: "https://soundcloud.com/dylanhaleofficial/a-drop-in-the-ocean-nightcore-ron-pope",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Girlfriend",
+        artist: "NightcoreMini",
+        url: "https://soundcloud.com/nightcoremini/nightcore-girlfriend",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – MMM Yeah",
+        artist: "WolfyNightcore",
+        url: "https://soundcloud.com/wolfynightcore/nightcore-mmm-yeah",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – OMFG – I Love You",
+        artist: "Ozik",
+        url: "https://soundcloud.com/ozik987/nightcore-omfg-i-love-you",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – You're Gonna Go Far, Kid",
+        artist: "Nightcore",
+        url: "https://soundcloud.com/nightcore_com/nightcore-youre-gonna-go-far-kid",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Pika Girl",
+        artist: "Nightcore Network",
+        url: "https://soundcloud.com/nightcorenetwork2_0/nightcore-pika-girl",
+        cover: "placeholder.jpg"
     }
 ];
 
