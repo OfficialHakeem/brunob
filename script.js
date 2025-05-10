@@ -117,6 +117,66 @@ const playlist = [
         artist: "Nightcore Network",
         url: "https://soundcloud.com/nightcorenetwork2_0/nightcore-pika-girl",
         cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Hometown Smile",
+        artist: "izy",
+        url: "https://soundcloud.com/a-sh0/nightcore-hometown-smile",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Monster (Dev)",
+        artist: "Nightcore",
+        url: "https://soundcloud.com/nightcore_com/nightcore-monster-dev",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Angel With A Shotgun",
+        artist: "Nightcore",
+        url: "https://soundcloud.com/nightcore_com/nightcore-angel-with-a-shotgun",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Demons",
+        artist: "NightcoreReality",
+        url: "https://soundcloud.com/nightcorereality/nightcore-demons",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Counting Stars",
+        artist: "ieuan williams",
+        url: "https://soundcloud.com/ieuan-williams-4/nightcore-counting-stars",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Radioactive (Imagine Dragons)",
+        artist: "Smithers2882",
+        url: "https://soundcloud.com/user-451501829/nightcore-radioactive-imagine-dragons",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Centuries",
+        artist: "NightcoresAreAmazing",
+        url: "https://soundcloud.com/nightcoresareamazing/nightcore-centuries",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Take Me To Church (Female Version)",
+        artist: "Cuds",
+        url: "https://soundcloud.com/c_uds/nightcore-take-me-to-church-female-version",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Heathens (Twenty One Pilots)",
+        artist: "Sneakyywoof",
+        url: "https://soundcloud.com/sneaky-y-woof/nightcore-heathens-twenty-one-pilots",
+        cover: "placeholder.jpg"
+    },
+    {
+        title: "Nightcore – Believer",
+        artist: "Sabina",
+        url: "https://soundcloud.com/ana-eliza-pereira-de-freitas/nightcore-believer",
+        cover: "placeholder.jpg"
     }
 ];
 
