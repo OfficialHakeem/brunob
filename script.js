@@ -189,12 +189,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // CV link functionality
+    // CV link download PDF
     const cvLink = document.getElementById('cv-link');
     if (cvLink) {
-        cvLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            showNotification('CV aún no está disponible');
+        cvLink.setAttribute('href', 'cv/Ortiz_Blanco,Bruno.pdf');
+        cvLink.setAttribute('download', 'Ortiz_Blanco,Bruno.pdf');
+        cvLink.addEventListener('click', function() {
+            showNotification('Descargando CV...');
         });
     }
 });
